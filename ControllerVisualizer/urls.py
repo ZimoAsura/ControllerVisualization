@@ -19,10 +19,10 @@ from UploadData.views import *
 from Visualization.views import *
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('',data_upload, name='home'),
-    path('upload/', data_upload, name="data_upload"),
-    path('visualization/<str:fid>/', visualization, name="visualization"),
-    path('data-list/',get_all_files, name='get_all_files'),
-    path('delete/<str:fid>/', delete_file, name="delete_file"),
+    path("", data_upload, name="home"),
+    path("admin/", admin.site.urls),
+    path("upload/", data_upload, name="data_upload"),
+    path("visualization/<str:fid>/", visualization, name="visualization"),
+    path("data-list/", get_all_files, name="get_all_files"),
+    path("delete/<str:fid>/", delete_file, name="delete_file"),
 ]
