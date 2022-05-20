@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>file list</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  </head>
+{% include "navbar.html" %}
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">File Name</th>
+      <th scope="col">Submit Time</th>
+      <th scope="col">Visualization Reuslt</th>
+      <th scope="col">Action</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    {% for file in files %}
+    <tr>
+      <td>{{file.file_name}}</td>
+      <td>{{file.upload_time}}</td>
+      <td><button type="button" onclick="location.href='{% url 'visualization' file.file_id %}'" class="btn btn-primary">Result</button></td>
+      <td><button type="button" onclick="location.href='{% url 'delete_file' file.file_id %}'" class="btn btn-danger">Delete</button></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
